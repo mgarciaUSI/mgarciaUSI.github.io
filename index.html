@@ -13,6 +13,7 @@
 <div class="jumbotron text-center">
   <h1>My First Bootstrap Page</h1>
   <p>Resize this responsive page to see the effect!</p> 
+	<button onclick="myFunction()">Try it</button>
 </div>
   
 <div class="container">
@@ -68,7 +69,10 @@ window.onscroll = function(startingHeight) {
 
 }
 	
-
+function myFunction() {
+    var h = window.innerHeight;
+    document.getElementById("demo").innerHTML = "<br>Height: " + h;
+}
 </script>
 
 </body>
