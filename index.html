@@ -36,6 +36,7 @@
 </div>
   
 <script>
+/*
 $(function() {
     $(window).focus(function() {
         alert('Focus');
@@ -45,6 +46,11 @@ $(function() {
         alert('Blur');
     });
 });
+*/
+  
+window.onblur = function() {
+	alert("Page abandoned");
+};
 
     
 </script>
