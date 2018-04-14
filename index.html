@@ -43,9 +43,9 @@ $(function() {
     //    alert('Blur');
     //});
 	
-	$(window).on('resize', function () {
-		alert("Window size changed");
-	});
+	//$(window).on('resize', function () {
+	//	alert("Window size changed");
+	//});
 	
 });
 
@@ -55,7 +55,11 @@ $(function() {
 //};
 
 	window.onscroll = function() {
-		console.log(window.pageYOffset);
+		//checks for Y scroll position 
+		//console.log(window.pageYOffset);
+		
+		//checks if window height changed while scrolling
+		console.log(window.innerHeight);
 	}
 	
     
