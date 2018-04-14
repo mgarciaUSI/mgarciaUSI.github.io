@@ -36,12 +36,16 @@
 </div>
   
 <script>
-  if (window.onfocus){
-    alert('Tab is active');
-  }
-  else{
-    alert('Tab is inactive');
-  }
+$(function() {
+    $(window).focus(function() {
+        console.log('Focus');
+    });
+
+    $(window).blur(function() {
+        console.log('Blur');
+    });
+});
+
     
 </script>
 
