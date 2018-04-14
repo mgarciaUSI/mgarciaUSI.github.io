@@ -36,21 +36,23 @@
 </div>
   
 <script>
-/*
-$(function() {
-    $(window).focus(function() {
-        alert('Focus');
-    });
 
-    $(window).blur(function() {
-        alert('Blur');
-    });
+$(function() {
+	// Option 1 JQuery - Page abandoned 
+    //$(window).blur(function() {
+    //    alert('Blur');
+    //});
+	
+	$(window).on('resize touchmove', function () {
+		alert("Window size changed");
+	});
+	
 });
-*/
-  
-window.onblur = function() {
-	alert("Page abandoned");
-};
+
+// Option 2 JavaScript - Page abandoned	
+//window.onblur = function() {
+//	alert("Page abandoned");
+//};
 
     
 </script>
