@@ -252,11 +252,15 @@ $(function() {
 	//});
 	
 });
+	
+if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
+	// Option 2 JavaScript - Page abandoned	
+	window.onblur = function() {
+		alert("Page abandoned");
+	};
+}	
 
-// Option 2 JavaScript - Page abandoned	
-//window.onblur = function() {
-//	alert("Page abandoned");
-//};
+
 	
 	
 var startingHeight = window.innerHeight;
