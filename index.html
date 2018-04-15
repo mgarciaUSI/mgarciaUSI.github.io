@@ -60,6 +60,9 @@ $(function() {
 var startingHeight = window.innerHeight;
 	//alert(startingHeight);
 window.onscroll = function(startingHeight) {
+	
+	document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
+	
 	//checks for Y scroll position 
 	//console.log(window.pageYOffset);
 
@@ -70,10 +73,10 @@ window.onscroll = function(startingHeight) {
 
 }
 	
-function myFunction() {
-    var h = window.innerHeight;
-    document.getElementById("demo").innerHTML = "<br>Height: " + h;
-}
+//function myFunction() {
+//    var h = window.innerHeight;
+//    document.getElementById("demo").innerHTML = "<br>Height: " + h;
+//}
 </script>
 
 </body>
