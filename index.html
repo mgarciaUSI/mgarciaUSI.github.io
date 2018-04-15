@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Mobile Test</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -241,38 +241,26 @@
   
 <script>
 
-$(function() {
-	// Option 1 JQuery - Page abandoned 
-    //$(window).blur(function() {
-    //    alert('Blur');
-    //});
-	
-	//$(window).on('resize', function () {
-	//	alert("Window size changed");
-	//});
-	
-});
-	
+// check if it is a mobile device
 if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
 	// Option 2 JavaScript - Page abandoned	
 	window.onblur = function() {
 		alert("Page abandoned");
 	};
 }	
-
-
-	
-	
-var startingHeight = window.innerHeight;
+    
+    
+//var startingHeight = window.innerHeight;
 	//alert(startingHeight);
-window.onscroll = function(startingHeight) {
-	document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
+//window.onscroll = function(startingHeight) {
+	//document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
 	//checks if window height changed while scrolling
 	//if(startingHeight < window.innerHeight){
 	//	alert("changed on height detected");
 	//}
-}
+//}
 
+    
 var checkScrollSpeed = (function(settings){
     settings = settings || {};
 
@@ -300,6 +288,7 @@ var checkScrollSpeed = (function(settings){
 
 // listen to "scroll" event
 window.onscroll = function(){
+    document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
 	scrollSpeed = checkScrollSpeed();
 	if(scrollSpeed < -50 ){
 		console.log("quick scroll detected: " + scrollSpeed);
