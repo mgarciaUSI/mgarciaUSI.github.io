@@ -11,7 +11,6 @@
 <body>
 
   <div id="demoDiv">
-    <p id="startingHeight"></p>
     <p id="showHeight"></p>
     <p id="showToolbarData"></p>
   </div>
@@ -317,18 +316,12 @@ var checkScrollSpeed = (function(settings){
 
 
 var startingHeight = window.innerHeight;
-document.getElementById("startingHeight").innerHTML = "Starting height: " + startingHeight;
-
-console.log("Starting window height:" + startingHeight);
-
 
 // listen to "scroll" event
 window.onscroll = function(){
 
-  document.getElementById("startingHeight").innerHTML = "Starting height: " + startingHeight;
-
   // display height of the screen while scrolling
-  document.getElementById("showHeight").innerHTML = "Window height: " + window.innerHeight;
+  document.getElementById("showHeight").innerHTML = "Window Height: " + window.innerHeight;
 
   if(window.innerHeight > startingHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
