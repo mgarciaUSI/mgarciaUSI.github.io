@@ -9,8 +9,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	testing remote branch
-<div id="demo"></div>
+
+  <div id="demo"></div>
 	
 <div class="jumbotron text-center">
   <h1>Mobile Test</h1>
@@ -241,6 +241,28 @@
 
 </div>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- End Modal -->
+
 <style>
 img{
     width:100%;
@@ -261,8 +283,9 @@ img{
 // check if it is a mobile device
 if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
 	// Option 2 JavaScript - Page abandoned	
-	window.onblur = function() {
-		alert("Page abandoned");
+  window.onblur = function() {
+		//alert("Page abandoned");
+    $("#myModal").modal();
 	};
 }	
     
@@ -305,10 +328,11 @@ var checkScrollSpeed = (function(settings){
 
 // listen to "scroll" event
 window.onscroll = function(){
-    document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
+  document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
 	scrollSpeed = checkScrollSpeed();
 	if(scrollSpeed < -50 ){
 		console.log("quick scroll detected: " + scrollSpeed);
+    $("#myModal").modal();
 	}
 };
 </script>
