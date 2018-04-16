@@ -10,7 +10,10 @@
 </head>
 <body>
 
-  <div id="demo"></div>
+  <div id="demoDiv">
+    <p id="showHeight"></p>
+    <p id="showToolbarData"></p>
+  </div>
 	
 <div class="jumbotron text-center">
   <h1>Mobile Test</h1>
@@ -263,7 +266,7 @@
 img{
     width:100%;
 }
-#demo{
+#demoDiv{
     text-align: center;
     width: 100%;
     position: fixed;
@@ -311,10 +314,20 @@ var checkScrollSpeed = (function(settings){
     };
 })();
 
+var startingHeight = window.innerHeight;
+
 // listen to "scroll" event
-window.onscroll = function(){
-  // display the height of the screen while scrolling
-  document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
+window.onscroll = function(startingHeight){
+
+  // display height of the screen while scrolling
+  document.getElementById("showHeight").innerHTML = "Height: " + window.innerHeight;
+
+  if(startingHeight < window.innerHeight){
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
+  }
+  else{
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
+  }
 
 	scrollSpeed = checkScrollSpeed();
 	if(scrollSpeed < -50 ){
