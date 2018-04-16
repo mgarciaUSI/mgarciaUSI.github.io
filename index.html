@@ -278,25 +278,14 @@ img{
 
 // check if it is a mobile device
 if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
-	// Option 2 JavaScript - Page abandoned	
+	// Detect when user is trying to abandon the mobile site	
   window.onblur = function() {
 		//alert("Page abandoned");
     $("#myModal").modal();
 	};
 }	
     
-    
-//var startingHeight = window.innerHeight;
-	//alert(startingHeight);
-//window.onscroll = function(startingHeight) {
-	//document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
-	//checks if window height changed while scrolling
-	//if(startingHeight < window.innerHeight){
-	//	alert("changed on height detected");
-	//}
-//}
-
-    
+// check scrolling speed      
 var checkScrollSpeed = (function(settings){
     settings = settings || {};
 
@@ -324,7 +313,9 @@ var checkScrollSpeed = (function(settings){
 
 // listen to "scroll" event
 window.onscroll = function(){
+  // display the height of the screen while scrolling
   document.getElementById("demo").innerHTML = "<br>Height: " + window.innerHeight;
+
 	scrollSpeed = checkScrollSpeed();
 	if(scrollSpeed < -50 ){
 		console.log("quick scroll detected: " + scrollSpeed);
