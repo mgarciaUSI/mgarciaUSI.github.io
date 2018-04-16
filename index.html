@@ -314,15 +314,18 @@ var checkScrollSpeed = (function(settings){
     };
 })();
 
+
 var startingHeight = window.innerHeight;
+console.log("Starting window height:" + startingHeight);
+
 
 // listen to "scroll" event
 window.onscroll = function(startingHeight){
 
   // display height of the screen while scrolling
-  document.getElementById("showHeight").innerHTML = "Height: " + window.innerHeight;
+  document.getElementById("showHeight").innerHTML = "Window height: " + window.innerHeight;
 
-  if(startingHeight < window.innerHeight){
+  if(window.innerHeight > startingHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
