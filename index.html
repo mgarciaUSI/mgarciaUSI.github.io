@@ -11,6 +11,7 @@
 <body>
 
   <div id="demoDiv">
+    <p id="startingHeight"></p>
     <p id="showHeight"></p>
     <p id="showToolbarData"></p>
   </div>
@@ -245,7 +246,7 @@
 </div>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog" style="margin-top:50px">
+<div id="myModal" class="modal fade" role="dialog" style="margin-top:75px">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -316,11 +317,15 @@ var checkScrollSpeed = (function(settings){
 
 
 var startingHeight = window.innerHeight;
+document.getElementById("startingHeight").innerHTML = "Starting height: " + startingHeight;
+
 console.log("Starting window height:" + startingHeight);
 
 
 // listen to "scroll" event
-window.onscroll = function(startingHeight){
+window.onscroll = function(){
+
+  document.getElementById("startingHeight").innerHTML = "Starting height: " + startingHeight;
 
   // display height of the screen while scrolling
   document.getElementById("showHeight").innerHTML = "Window height: " + window.innerHeight;
