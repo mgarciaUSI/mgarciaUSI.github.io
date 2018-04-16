@@ -13,6 +13,7 @@
   <div id="demoDiv">
     <p id="showHeight"></p>
     <p id="showToolbarData"></p>
+	<p id="showScrollData"></p>	  
   </div>
 	
 <div class="jumbotron text-center" style="margin-top:40px">
@@ -318,6 +319,7 @@ var checkScrollSpeed = (function(settings){
 var startingHeight = window.innerHeight;
 document.getElementById("showHeight").innerHTML = "Window Height: " + window.innerHeight;
 document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
+document.getElementById("showScrollData").innerHTML = "Start Scrolling";
 
 // listen to "scroll" event
 window.onscroll = function(){
@@ -335,7 +337,11 @@ window.onscroll = function(){
 	scrollSpeed = checkScrollSpeed();
 	if(scrollSpeed < -50 ){
 		console.log("quick scroll detected: " + scrollSpeed);
-    $("#myModal").modal();
+		document.getElementById("showScrollData").innerHTML = "Quick scroll detected";
+    	//$("#myModal").modal();
+	}
+	else{
+		document.getElementById("showScrollData").innerHTML = "Slow scroll detected";
 	}
 };
 </script>
