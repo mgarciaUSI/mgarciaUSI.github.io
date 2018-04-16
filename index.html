@@ -316,6 +316,8 @@ var checkScrollSpeed = (function(settings){
 
 
 var startingHeight = window.innerHeight;
+document.getElementById("showHeight").innerHTML = "Window Height: " + window.innerHeight;
+document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
 
 // listen to "scroll" event
 window.onscroll = function(){
