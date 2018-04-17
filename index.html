@@ -335,11 +335,17 @@ window.onscroll = function(){
   }
 
 	scrollSpeed = checkScrollSpeed();
+
+  console.log(scrollSpeed);
+
 	if(scrollSpeed < -50 ){
 		console.log("quick scroll detected: " + scrollSpeed);
 		document.getElementById("showScrollData").innerHTML = "Quick scroll detected";
     	//$("#myModal").modal();
 	}
+  else if(scrollSpeed == 0){
+    document.getElementById("showScrollData").innerHTML = "Too slow";
+  }
   else if(scrollSpeed > 0){
     document.getElementById("showScrollData").innerHTML = "Scrolling down";
   }
