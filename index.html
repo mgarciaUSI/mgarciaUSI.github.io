@@ -292,8 +292,12 @@ if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowe
 	};
   // check page visibility
   document.addEventListener("visibilitychange", function() {
-    $("#myModal").modal();
-    console.log( document.visibilityState );
+    if (document.hidden) {
+      $("#myModal").modal();
+    }
+    if (document.visibilityState === 'unloaded') {
+      $("#myModal").modal();
+    }
   });
 }	
     
