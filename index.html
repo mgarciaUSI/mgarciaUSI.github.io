@@ -284,9 +284,12 @@ img{
 if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
 	// Detect when user is trying to abandon the mobile site	
   window.onblur = function() {
-		//alert("Page abandoned");
     $("#myModal").modal();
 	};
+
+  window.addEventListener("resize", function(){
+    $("#myModal").modal();
+  });
 }	
     
 // check scrolling speed      
@@ -353,6 +356,8 @@ window.onscroll = function(){
 		document.getElementById("showScrollData").innerHTML = "Slow scroll detected";
 	}
 };
+
+
 </script>
 
 </body>
