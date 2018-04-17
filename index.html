@@ -286,6 +286,15 @@ if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowe
   window.onblur = function() {
     $("#myModal").modal();
 	};
+  // IOS
+  window.onpagehide = function() {
+    $("#myModal").modal();
+	};
+  // check page visibility
+  document.addEventListener("visibilitychange", function() {
+    $("#myModal").modal();
+    console.log( document.visibilityState );
+  });
 }	
     
 // check scrolling speed      
