@@ -246,7 +246,7 @@
 </div>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog" style="margin-top:75px">
+<div id="myModal" class="modal fade" role="dialog" style="margin-top:100px">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -340,6 +340,9 @@ window.onscroll = function(){
 		document.getElementById("showScrollData").innerHTML = "Quick scroll detected";
     	//$("#myModal").modal();
 	}
+  else if(scrollSpeed > 0){
+    document.getElementById("showScrollData").innerHTML = "Scrolling down";
+  }
 	else{
 		document.getElementById("showScrollData").innerHTML = "Slow scroll detected";
 	}
