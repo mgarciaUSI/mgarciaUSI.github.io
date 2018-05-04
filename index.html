@@ -396,9 +396,13 @@ window.onscroll = function(){
 
 };
 
+
+window.onorientationchange = function() { 
+  setTimeout(indicators, 0); 
+};
+
 indicators();
 
-window.addEventListener('orientationchange', indicators);
 
 
 
