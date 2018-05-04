@@ -11,9 +11,12 @@
 <body>
 
   <div id="demoDiv">
+    <p id="showScreenHeight"></p>
+    <p id="showHeight"></p>
     <p id="showHeight"></p>
     <p id="showToolbarData"></p>
-	<p id="showScrollData"></p>	  
+	  <p id="showScrollData"></p>	  
+	  <p id="showOrientation"></p>	  
   </div>
 	
 <div class="jumbotron text-center" style="margin-top:40px">
@@ -300,6 +303,8 @@ if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowe
     }
   });
 }	
+
+
     
 // check scrolling speed      
 var checkScrollSpeed = (function(settings){
@@ -327,19 +332,40 @@ var checkScrollSpeed = (function(settings){
     };
 })();
 
+  
 
-var startingHeight = window.innerHeight;
-document.getElementById("showHeight").innerHTML = "Window Height: " + window.innerHeight;
-document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
-document.getElementById("showScrollData").innerHTML = "Start Scrolling";
+// Indicators
+function indicators(){
+
+  // Orientation
+  if(window.innerHeight > window.innerWidth){
+    document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
+  }
+  else{
+    document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
+  }
+
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.outerHeight;
+  document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+  if(window.outerHeight == window.innerHeight){
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
+  }
+  else{
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
+  }
+
+  document.getElementById("showScrollData").innerHTML = "Start Scrolling";
+  
+}
+
 
 // listen to "scroll" event
 window.onscroll = function(){
 
   // display height of the screen while scrolling
-  document.getElementById("showHeight").innerHTML = "Window Height: " + window.innerHeight;
+  document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
-  if(window.innerHeight > startingHeight){
+  if(window.outerHeight == window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
@@ -348,23 +374,32 @@ window.onscroll = function(){
 
 	scrollSpeed = checkScrollSpeed();
 
-  console.log(scrollSpeed);
+  //console.log(scrollSpeed);
 
-	if(scrollSpeed < -50 ){
-		console.log("quick scroll detected: " + scrollSpeed);
-		document.getElementById("showScrollData").innerHTML = "Quick scroll detected";
+	if(scrollSpeed < -50){
+		//console.log("quick scroll detected: " + scrollSpeed);
+		document.getElementById("showScrollData").innerHTML = "Up: Quick scroll detected";
     	//$("#myModal").modal();
 	}
+  else if(scrollSpeed > 50){
+    document.getElementById("showScrollData").innerHTML = "Down: Quick scroll detected";
+  }
   else if(scrollSpeed == 0){
     document.getElementById("showScrollData").innerHTML = "Too slow";
   }
   else if(scrollSpeed > 0){
-    document.getElementById("showScrollData").innerHTML = "Scrolling down";
+    document.getElementById("showScrollData").innerHTML = "Down: Scrolling detected";
   }
 	else{
-		document.getElementById("showScrollData").innerHTML = "Slow scroll detected";
+		document.getElementById("showScrollData").innerHTML = "Up: Scrolling detected";
 	}
+
 };
+
+indicators();
+
+window.addEventListener('orientationchange', indicators);
+
 
 
 </script>
