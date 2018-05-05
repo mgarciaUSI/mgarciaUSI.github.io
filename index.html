@@ -282,7 +282,7 @@ img{
 </style>
   
 <script>
-
+var outerHeight;
 
 // check if it is a mobile device
 if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
@@ -338,7 +338,7 @@ var checkScrollSpeed = (function(settings){
 // Indicators
 function indicators(){
 
-  var outerHeight = document.documentElement.clientHeight;
+  outerHeight = document.documentElement.clientHeight;
 
   // Orientation
   if(screen.orientation.angle === 0){
