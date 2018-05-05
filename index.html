@@ -345,14 +345,14 @@ function indicators(){
     document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
   }
 
-  if(window.outerHeight < window.innerHeight){
+  if(document.documentElement.clientHeight < window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
     document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
   }
 
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.outerHeight;
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + document.documentElement.clientHeight;
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
   
@@ -363,10 +363,10 @@ function indicators(){
 window.onscroll = function(){
 
   // display height of the screen while scrolling
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.outerHeight;
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + document.documentElement.clientHeight;
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
-  if(window.outerHeight < window.innerHeight){
+  if(document.documentElement.clientHeight < window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
