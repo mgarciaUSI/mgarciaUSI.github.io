@@ -338,16 +338,16 @@ var checkScrollSpeed = (function(settings){
 function indicators(){
 
   // Orientation
-  if(window.innerHeight > window.innerWidth){
+  if(screen.orientation.angle === 0){
     document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
   }
   else{
     document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
   }
 
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.outerHeight;
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.screen.height;
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
-  if(window.outerHeight == window.innerHeight){
+  if(window.screen.height == window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
@@ -365,7 +365,7 @@ window.onscroll = function(){
   // display height of the screen while scrolling
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
-  if(window.outerHeight == window.innerHeight){
+  if(window.screen.height == window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
@@ -397,14 +397,14 @@ window.onscroll = function(){
 };
 
 
-window.onorientationchange = function() { 
-  setTimeout(indicators, 0); 
-};
+
+
+window.addEventListener("orientationchange", function() {
+  setTimeout(indicators, 500)
+});
+
 
 indicators();
-
-
-
 
 </script>
 
