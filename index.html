@@ -346,10 +346,10 @@ function indicators(){
   }
 
   if(document.documentElement.clientHeight < window.innerHeight){
-    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
-    document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
   }
 
   document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + document.documentElement.clientHeight;
@@ -366,10 +366,10 @@ window.onscroll = function(){
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
   if(document.documentElement.clientHeight < window.innerHeight){
-    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
-    document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
   }
 
 	scrollSpeed = checkScrollSpeed();
