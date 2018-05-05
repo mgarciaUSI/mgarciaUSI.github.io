@@ -345,9 +345,9 @@ function indicators(){
     document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
   }
 
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.screen.height;
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.outerHeight;
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
-  if(window.screen.height == window.innerHeight){
+  if(window.outerHeight == window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
@@ -365,7 +365,7 @@ window.onscroll = function(){
   // display height of the screen while scrolling
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
-  if(window.screen.height == window.innerHeight){
+  if(window.outerHeight == window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
