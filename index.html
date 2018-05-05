@@ -400,7 +400,8 @@ window.onscroll = function(){
 
 
 window.addEventListener("orientationchange", function() {
-  setTimeout(indicators, 500);
+  //setTimeout(indicators, 500);
+  setTimeout(function(){ indicators(); }, 500);
 });
 
 
