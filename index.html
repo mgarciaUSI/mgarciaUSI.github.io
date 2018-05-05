@@ -359,48 +359,48 @@ function indicators(){
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
 
-  
-  
+    
+  // listen to "scroll" event
+  window.onscroll = function(){
+
+    // display height of the screen while scrolling
+    document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
+    document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+
+    if(outerHeight < window.innerHeight){
+      document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
+    }
+    else{
+      document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
+    }
+
+    scrollSpeed = checkScrollSpeed();
+
+    //console.log(scrollSpeed);
+
+    if(scrollSpeed < -50){
+      //console.log("quick scroll detected: " + scrollSpeed);
+      document.getElementById("showScrollData").innerHTML = "Up: Quick scroll detected";
+        //$("#myModal").modal();
+    }
+    else if(scrollSpeed > 50){
+      document.getElementById("showScrollData").innerHTML = "Down: Quick scroll detected";
+    }
+    else if(scrollSpeed == 0){
+      document.getElementById("showScrollData").innerHTML = "Too slow";
+    }
+    else if(scrollSpeed > 0){
+      document.getElementById("showScrollData").innerHTML = "Down: Scrolling detected";
+    }
+    else{
+      document.getElementById("showScrollData").innerHTML = "Up: Scrolling detected";
+    }
+
+  };
+
 }
 
 
-// listen to "scroll" event
-window.onscroll = function(){
-
-  // display height of the screen while scrolling
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
-  document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
-
-  if(outerHeight < window.innerHeight){
-    document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
-  }
-  else{
-    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
-  }
-
-	scrollSpeed = checkScrollSpeed();
-
-  //console.log(scrollSpeed);
-
-	if(scrollSpeed < -50){
-		//console.log("quick scroll detected: " + scrollSpeed);
-		document.getElementById("showScrollData").innerHTML = "Up: Quick scroll detected";
-    	//$("#myModal").modal();
-	}
-  else if(scrollSpeed > 50){
-    document.getElementById("showScrollData").innerHTML = "Down: Quick scroll detected";
-  }
-  else if(scrollSpeed == 0){
-    document.getElementById("showScrollData").innerHTML = "Too slow";
-  }
-  else if(scrollSpeed > 0){
-    document.getElementById("showScrollData").innerHTML = "Down: Scrolling detected";
-  }
-	else{
-		document.getElementById("showScrollData").innerHTML = "Up: Scrolling detected";
-	}
-
-};
 
 
 
