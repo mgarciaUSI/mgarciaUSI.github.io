@@ -338,7 +338,7 @@ var checkScrollSpeed = (function(settings){
 // Indicators
 function indicators(){
 
-  var outerHeight = window.outerHeight;
+  var outerHeight = document.documentElement.clientHeight;
 
   // Orientation
   if(screen.orientation.angle === 0){
