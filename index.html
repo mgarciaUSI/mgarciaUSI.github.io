@@ -283,6 +283,7 @@ img{
   
 <script>
 
+
 // check if it is a mobile device
 if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
 	// Detect when user is trying to abandon the mobile site	
@@ -337,6 +338,8 @@ var checkScrollSpeed = (function(settings){
 // Indicators
 function indicators(){
 
+  var outerHeight = window.outerHeight;
+
   // Orientation
   if(screen.orientation.angle === 0){
     document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
@@ -345,16 +348,18 @@ function indicators(){
     document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
   }
 
-  if(window.outerHeight < window.innerHeight){
+  if(outerHeight < window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
     document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
   }
 
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.outerHeight;
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
+
+  
   
 }
 
@@ -363,10 +368,10 @@ function indicators(){
 window.onscroll = function(){
 
   // display height of the screen while scrolling
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.outerHeight;
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
-  if(window.outerHeight < window.innerHeight){
+  if(outerHeight < window.innerHeight){
     document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
   }
   else{
