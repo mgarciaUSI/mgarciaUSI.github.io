@@ -363,6 +363,7 @@ function indicators(){
 window.onscroll = function(){
 
   // display height of the screen while scrolling
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + window.outerHeight;
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
   if(window.outerHeight < window.innerHeight){
