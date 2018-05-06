@@ -442,7 +442,7 @@ window.addEventListener("orientationchange", function() {
   setTimeout(indicators, 500);
 });
 
-
+window.onpagehide = function(e) { alert("Don't go! I'm lonely!"); }
 
 indicators();
 
