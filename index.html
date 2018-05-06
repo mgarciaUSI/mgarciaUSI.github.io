@@ -306,9 +306,6 @@ if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowe
 
   window.onbeforeunload = function (e) {
     $("#myModal").modal();
-    message = "Are you sure you want leave?";
-    e.returnValue = message;
-    return message;
   };
 }	
 
@@ -446,10 +443,6 @@ function indicators(){
 
 window.addEventListener("orientationchange", function() {
   setTimeout(indicators, 500);
-});
-
-window.addEventListener("resize", function() {
-  alert("resize");
 });
 
 
