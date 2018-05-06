@@ -342,8 +342,17 @@ function indicators(){
   outerHeight = document.documentElement.clientHeight;
 
   // IOS crashes when I use screen.orientation.angle
-  if(!(/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
-    // Orientation
+  if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
+    //Orientation IOS
+    if(window.innerHeight > window.innerWidth){
+      document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
+    }
+    else{
+      document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
+    }
+  }
+  else{
+    // Orientation (Android)
     if(screen.orientation.angle === 0){
       document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
     }
