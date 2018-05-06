@@ -425,6 +425,18 @@ function indicatorsIOS(){
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
 
+}
+
+
+// IOS (setTimeout not responding)
+if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
+ alert("IOS");
+  window.addEventListener("orientationchange", function() {
+    indicatorsIOS();
+  });
+
+  indicatorsIOS();
+
   // listen to "scroll" event
   window.onscroll = function(){
 
@@ -462,18 +474,6 @@ function indicatorsIOS(){
     }
 
   };
-
-}
-
-
-// IOS (setTimeout not responding)
-if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
- alert("IOS");
-  window.addEventListener("orientationchange", function() {
-    indicatorsIOS();
-  });
-
-  indicatorsIOS();
 }
 // Android
 else{
