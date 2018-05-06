@@ -303,6 +303,13 @@ if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowe
       $("#myModal").modal();
     }
   });
+
+  window.onbeforeunload = function (e) {
+    $("#myModal").modal();
+    message = "Are you sure you want leave?";
+    e.returnValue = message;
+    return message;
+  };
 }	
 
 
