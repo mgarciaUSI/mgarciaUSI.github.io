@@ -341,12 +341,15 @@ function indicators(){
 
   outerHeight = document.documentElement.clientHeight;
 
-  // Orientation
-  if(screen.orientation.angle === 0){
-    document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
-  }
-  else{
-    document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
+  // IOS crashes when I use screen.orientation.angle
+  if(!(/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
+    // Orientation
+    if(screen.orientation.angle === 0){
+      document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
+    }
+    else{
+      document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
+    }
   }
 
   if(outerHeight < window.innerHeight){
@@ -403,14 +406,17 @@ function indicators(){
 function IOS(){
 
     outerHeight = document.documentElement.clientHeight;
+    alert(outerHeight);
 
     // Orientation
+    /*
     if(screen.orientation.angle === 0){
       document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
     }
     else{
       document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
     }
+    */
 
     if(outerHeight < window.innerHeight){
       document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
@@ -465,7 +471,7 @@ function IOS(){
 
 
 }
-
+/*
 // IOS (setTimeout not responding)
 if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
   window.addEventListener("orientationchange", function() {
@@ -482,6 +488,13 @@ else{
 
   indicators();
 }
+*/
+
+window.addEventListener("orientationchange", function() {
+    setTimeout(indicators, 500);
+  });
+
+  indicators();
 
 
 //window.addEventListener("resize", myFunction);
