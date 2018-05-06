@@ -468,14 +468,11 @@ function IOS(){
 
 // IOS (setTimeout not responding)
 if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
- alert("IOS");
   window.addEventListener("orientationchange", function() {
     IOS();
   });
 
   IOS();
-
-  
 }
 // Android
 else{
