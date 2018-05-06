@@ -402,6 +402,10 @@ window.onscroll = function(){
 
 };
 
+function myFunction() {
+    alert("resize");
+}
+
 
 
 window.addEventListener("orientationchange", function() {
@@ -409,6 +413,7 @@ window.addEventListener("orientationchange", function() {
   setTimeout(function(){ indicators(); }, 500);
 });
 
+window.addEventListener("resize", myFunction);
 
 
 indicators();
