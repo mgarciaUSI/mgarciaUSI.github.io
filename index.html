@@ -362,7 +362,7 @@ function indicators(){
   }
 
   // Mobile Landscape IOS detects toolbar diferently
-  if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase()) && window.innerHeight > window.innerWidth){
+  if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase()) && window.innerHeight < window.innerWidth){
       if(outerHeight > window.innerHeight){
         document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
       }
@@ -393,7 +393,7 @@ function indicators(){
     document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
     // Mobile Landscape IOS detects toolbar diferently
-    if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase()) && window.innerHeight > window.innerWidth){
+    if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase()) && window.innerHeight < window.innerWidth){
       if(outerHeight > window.innerHeight){
         document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
       }
