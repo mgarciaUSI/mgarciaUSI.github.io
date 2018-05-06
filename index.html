@@ -400,42 +400,30 @@ function indicators(){
 
 }
 
+function IOS(){
 
-// Indicators IOS
-function indicatorsIOS(){
+    outerHeight = document.documentElement.clientHeight;
 
-  outerHeight = document.documentElement.clientHeight;
+    // Orientation
+    if(screen.orientation.angle === 0){
+      document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
+    }
+    else{
+      document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
+    }
 
-  // Orientation
-  if(screen.orientation.angle === 0){
-    document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
-  }
-  else{
-    document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
-  }
+    if(outerHeight < window.innerHeight){
+      document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
+    }
+    else{
+      document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
+    }
 
-  if(outerHeight < window.innerHeight){
-    document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
-  }
-  else{
-    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
-  }
-
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
-  document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
-  document.getElementById("showScrollData").innerHTML = "Start Scrolling";
-
-}
+    document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
+    document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+    document.getElementById("showScrollData").innerHTML = "Start Scrolling";
 
 
-// IOS (setTimeout not responding)
-if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
- alert("IOS");
-  window.addEventListener("orientationchange", function() {
-    indicatorsIOS();
-  });
-
-  indicatorsIOS();
 
   // listen to "scroll" event
   window.onscroll = function(){
@@ -474,6 +462,20 @@ if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
     }
 
   };
+
+
+}
+
+// IOS (setTimeout not responding)
+if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
+ alert("IOS");
+  window.addEventListener("orientationchange", function() {
+    IOS();
+  });
+
+  IOS();
+
+  
 }
 // Android
 else{
