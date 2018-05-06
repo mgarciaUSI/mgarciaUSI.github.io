@@ -339,6 +339,8 @@ var checkScrollSpeed = (function(settings){
 // Indicators
 function indicators(){
 
+  alert("orientation changed");
+
   outerHeight = document.documentElement.clientHeight;
 
   // Orientation
@@ -408,12 +410,13 @@ function myFunction() {
 
 
 
-window.addEventListener("orientationchange", function() {
+//window.addEventListener("orientationchange", function() {
   //setTimeout(indicators, 500);
-  setTimeout(function(){ indicators(); }, 500);
-});
+//  setTimeout(function(){ indicators(); }, 500);
+//});
 
-window.addEventListener("resize", myFunction);
+window.addEventListener("orientationchange", indicators);
+//window.addEventListener("resize", myFunction);
 
 
 indicators();
