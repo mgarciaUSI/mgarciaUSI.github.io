@@ -362,6 +362,7 @@ function toolbarData(){
 function indicators(){
 
   outerHeight = document.documentElement.clientHeight;
+  //window height data on page load or on window resize
   //document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
   //document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
@@ -379,13 +380,9 @@ function indicators(){
   // listen to "scroll" event
   window.onscroll = function(){
 
-    // display height of the screen while scrolling
+    //window height data on scroll
     //document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
     //document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
-
-    if(window.locationbar.visible){
-      alert("visible");
-    }
 
 
     toolbarData();
@@ -417,6 +414,7 @@ function indicators(){
 
 
 window.addEventListener("orientationchange", function() {
+  // need delay for mobile Chrome
   setTimeout(indicators, 500);
 });
 
