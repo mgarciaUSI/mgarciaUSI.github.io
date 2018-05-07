@@ -363,8 +363,8 @@ function indicators(){
 
   outerHeight = document.documentElement.clientHeight;
   //window height data on page load or on window resize
-  //document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
-  //document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
+  document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
 
   //Orientation 
@@ -381,8 +381,8 @@ function indicators(){
   window.onscroll = function(){
 
     //window height data on scroll
-    //document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
-    //document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+    document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
+    document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
 
     toolbarData();
