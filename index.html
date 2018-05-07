@@ -11,8 +11,8 @@
 <body>
 
   <div id="demoDiv">
-    <p id="showScreenHeight" class="hidden1"></p>
-    <p id="showHeight" class="hidden1"></p>
+    <p id="showScreenHeight" class="hidden"></p>
+    <p id="showHeight" class="hidden"></p>
     <p id="showToolbarData"></p>
 	  <p id="showScrollData"></p>	  
 	  <p id="showOrientation"></p>	  
@@ -281,33 +281,7 @@ img{
 </style>
   
 <script>
-  
-var outerHeight;
 
-// check if it is a mobile device
-if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
-	// Detect when user is trying to abandon the mobile site	
-  window.onblur = function() {
-    $("#myModal").modal();
-	};
-  // IOS
-  window.onpagehide = function() {
-    $("#myModal").modal();
-	};
-  // check page visibility
-  document.addEventListener("visibilitychange", function() {
-    if (document.hidden) {
-      $("#myModal").modal();
-    }
-    if (document.visibilityState === 'unloaded') {
-      $("#myModal").modal();
-    }
-  });
-
-}	
-
-
-    
 // check scrolling speed      
 var checkScrollSpeed = (function(settings){
     settings = settings || {};
@@ -360,11 +334,13 @@ function toolbarData(){
 
 // Indicators
 function indicators(forceToolbar){
+  
+  var outerHeight;
 
   outerHeight = document.documentElement.clientHeight;
   //window height data on page load or on window resize
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
-  document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+  //document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
+  //document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
 
   //Orientation 
@@ -386,8 +362,8 @@ function indicators(forceToolbar){
   window.onscroll = function(){
 
     //window height data on scroll
-    document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
-    document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+    //document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
+    //document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
 
     toolbarData();
@@ -418,15 +394,39 @@ function indicators(forceToolbar){
 
 
 
-window.addEventListener("orientationchange", function() {
-  // need delay for mobile Chrome
-  setTimeout(indicators, 500);
-});
+// run code if user is using a mobile device
+if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowerCase())){
 
+	// Detect when user is trying to abandon the mobile site (standard method)
+  window.onblur = function() {
+    $("#myModal").modal();
+	};
 
-indicators(1);
+  // IOS
+  window.onpagehide = function() {
+    $("#myModal").modal();
+	};
 
+  // check page visibility
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      $("#myModal").modal();
+    }
+    if (document.visibilityState === 'unloaded') {
+      $("#myModal").modal();
+    }
+  });
 
+  //call main function when user changes the phone orientation
+  window.addEventListener("orientationchange", function() {
+    // need delay for mobile Chrome
+    setTimeout(indicators, 500);
+  });
+
+  //call the main function on page load or if user refreshes the site, parameter 1 means that by default the toolbar is visible
+  indicators(1);
+
+}
 
 </script>
 
