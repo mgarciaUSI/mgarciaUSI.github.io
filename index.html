@@ -11,7 +11,7 @@
 <body>
 
   <div id="demoDiv">
-    <p id="showScreenHeight" class="hidden"></p>
+    <p id="showScreenHeight" class="hidden1"></p>
     <p id="showHeight" class="hidden"></p>
     <p id="showToolbarData"></p>
 	  <p id="showScrollData"></p>	  
@@ -427,6 +427,13 @@ if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowe
   indicators(1);
 
 }
+
+setInterval(function(){ 
+    //code goes here that will be run every 5 seconds.    
+    console.log("a: "+new Date().getTime() / 1000);
+    document.getElementById("showScreenHeight").innerHTML = "Timer: " + new Date().getTime() / 1000;
+}, 1000);
+
 
 </script>
 
