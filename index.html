@@ -334,34 +334,10 @@ var checkScrollSpeed = (function(settings){
     };
 })();
 
-  
 
-// Indicators
-function indicators(){
 
-  outerHeight = document.documentElement.clientHeight;
-
-  // IOS crashes when I use screen.orientation.angle
-  if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase())){
-    //Orientation IOS
-    if(window.innerHeight > window.innerWidth){
-      document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
-    }
-    else{
-      document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
-    }
-  }
-  else{
-    // Orientation (Android)
-    if(screen.orientation.angle === 0){
-      document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
-    }
-    else{
-      document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
-    }
-  }
-
-  // Mobile Landscape IOS detects toolbar diferently
+function toolbarData(){
+  // Mobile Landscape IOS detects toolbar differently
   if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase()) && window.innerHeight < window.innerWidth){
       if(outerHeight > window.innerHeight){
         document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
@@ -378,13 +354,28 @@ function indicators(){
       document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
     }
   }
+}
 
   
 
+// Indicators
+function indicators(){
+
+  outerHeight = document.documentElement.clientHeight;
   document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
   document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
 
+  //Orientation 
+  if(window.innerHeight > window.innerWidth){
+    document.getElementById("showOrientation").innerHTML = "Orientation: Portrait";
+  }
+  else{
+    document.getElementById("showOrientation").innerHTML = "Orientation: Landscape";
+  }
+
+  toolbarData();
+  
   // listen to "scroll" event
   window.onscroll = function(){
 
@@ -392,23 +383,8 @@ function indicators(){
     document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
     document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
 
-    // Mobile Landscape IOS detects toolbar diferently
-    if((/iphone|ipod|ipad/i).test(navigator.userAgent.toLowerCase()) && window.innerHeight < window.innerWidth){
-      if(outerHeight > window.innerHeight){
-        document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
-      }
-      else{
-        document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
-      }
-    }
-    else{
-      if(outerHeight < window.innerHeight){
-        document.getElementById("showToolbarData").innerHTML = "Toolbar Hidden";
-      }
-      else{
-        document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
-      }
-    }
+
+    toolbarData();
 
 
     scrollSpeed = checkScrollSpeed();
