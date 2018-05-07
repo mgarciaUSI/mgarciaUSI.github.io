@@ -362,8 +362,8 @@ function toolbarData(){
 function indicators(){
 
   outerHeight = document.documentElement.clientHeight;
-  document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
-  document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+  //document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
+  //document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
   document.getElementById("showScrollData").innerHTML = "Start Scrolling";
 
   //Orientation 
@@ -380,20 +380,22 @@ function indicators(){
   window.onscroll = function(){
 
     // display height of the screen while scrolling
-    document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
-    document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+    //document.getElementById("showScreenHeight").innerHTML = "Outer Window Height: " + outerHeight;
+    //document.getElementById("showHeight").innerHTML = "Inner Window Height: " + window.innerHeight;
+
+    if(window.locationbar.visible){
+      alert("visible");
+    }
 
 
     toolbarData();
 
 
-    scrollSpeed = checkScrollSpeed();
+    var scrollSpeed = checkScrollSpeed();
 
 
     if(scrollSpeed < -50){
-      //console.log("quick scroll detected: " + scrollSpeed);
       document.getElementById("showScrollData").innerHTML = "Up: Quick scroll detected";
-        //$("#myModal").modal();
     }
     else if(scrollSpeed > 50){
       document.getElementById("showScrollData").innerHTML = "Down: Quick scroll detected";
