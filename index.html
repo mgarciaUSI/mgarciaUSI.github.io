@@ -281,6 +281,8 @@ img{
 </style>
   
 <script>
+  
+var outerHeight;
 
 // check scrolling speed      
 var checkScrollSpeed = (function(settings){
@@ -334,8 +336,6 @@ function toolbarData(){
 
 // Indicators
 function indicators(forceToolbar){
-  
-  var outerHeight;
 
   outerHeight = document.documentElement.clientHeight;
   //window height data on page load or on window resize
