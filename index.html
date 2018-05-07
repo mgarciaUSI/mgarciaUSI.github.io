@@ -11,7 +11,7 @@
 <body>
 
   <div id="demoDiv">
-    <p id="showScreenHeight" class="hidden1"></p>
+    <p id="showScreenHeight" class="hidden"></p>
     <p id="showHeight" class="hidden"></p>
     <p id="showToolbarData"></p>
 	  <p id="showScrollData"></p>	  
@@ -423,28 +423,10 @@ if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowe
     setTimeout(indicators, 500);
   });
 
-  //call the main function on page load or if user refreshes the site, parameter 1 means that by default the toolbar is visible
+  //call the main function on page load or if user refreshes the page, parameter 1 means that by default the toolbar is visible
   indicators(1);
 
 }
-
-var time1;
-var time2;
-var difference;
-
-setInterval(function(){ 
-    time1 = new Date().getTime() / 1000;
-}, 1000);
-
-setInterval(function(){ 
-    time2 = new Date().getTime() / 1000;
-    difference = time2 - time1;
-    console.log(difference);
-    document.getElementById("showScreenHeight").innerHTML = "difference: " + difference;
-}, 5000);
-
-
-
 
 </script>
 
