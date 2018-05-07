@@ -359,7 +359,7 @@ function toolbarData(){
   
 
 // Indicators
-function indicators(){
+function indicators(forceToolbar){
 
   outerHeight = document.documentElement.clientHeight;
   //window height data on page load or on window resize
@@ -376,6 +376,11 @@ function indicators(){
   }
 
   toolbarData();
+
+  //toolbar is always visible on page load or when user refreshes the page
+  if(forceToolbar){
+    document.getElementById("showToolbarData").innerHTML = "Toolbar Displayed";
+  }
   
   // listen to "scroll" event
   window.onscroll = function(){
@@ -419,7 +424,7 @@ window.addEventListener("orientationchange", function() {
 });
 
 
-indicators();
+indicators(1);
 
 
 
