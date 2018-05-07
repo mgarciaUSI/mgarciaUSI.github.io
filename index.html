@@ -428,11 +428,22 @@ if((/iphone|ipod|ipad|android|blackberry|mobi/i).test(navigator.userAgent.toLowe
 
 }
 
+var time1;
+var time2;
+var difference;
+
 setInterval(function(){ 
-    //code goes here that will be run every 5 seconds.    
-    console.log("a: "+new Date().getTime() / 1000);
-    document.getElementById("showScreenHeight").innerHTML = "Timer: " + new Date().getTime() / 1000;
+    time1 = new Date().getTime() / 1000;
 }, 1000);
+
+setInterval(function(){ 
+    time2 = new Date().getTime() / 1000;
+    difference = time2 - time1;
+    console.log(difference);
+    document.getElementById("showScreenHeight").innerHTML = "difference: " + difference;
+}, 5000);
+
+
 
 
 </script>
